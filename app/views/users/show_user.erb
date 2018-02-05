@@ -1,0 +1,8 @@
+
+<h2><%=@user.username%></h2>
+<h3>Name: <%=@user.name%></h3><br></br>
+<h3>Title: <%=@user.title%></h3><br></br>
+<h3>Client:</h3><br></br>
+  <% @user.clients.each do |client| %>
+    <ul><h4><a href = "/clients/<%=client.slug%>"></h4><%=client.name%></ul><br></br>
+  <%end%>
