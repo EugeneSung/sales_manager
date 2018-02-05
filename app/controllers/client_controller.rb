@@ -1,4 +1,4 @@
 require './config/environment'
 
-class ClientController < Sinatra::Base
+class ClientController < ApplicationController
 end
