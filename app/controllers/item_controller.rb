@@ -1,6 +1,9 @@
 require './config/environment'
 
-class UserController < ApplicationController
+class ItemController < ApplicationController
+  get '/items' do
+    erb :"/items/index"
+  end
 
 
 end

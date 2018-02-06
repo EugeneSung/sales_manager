@@ -1,0 +1,12 @@
+<body>
+
+<h2><%=@client.name%></h2>
+<h3>Address: <%=@client.address%></h3>
+<h3>Title: <%=@client.phone%></h3>
+<a href = "/clients/edit">Edit Client</a><br></br>
+<h3>Order List: </h3>
+  <% @client.orders.each do |order| %>
+    <ul><h4><%=order.id%></h4><a href = "/orders/<%=order.id%>"> (click to see details)</a></ul><br></br>
+  <%end%>
+<a href = "/add_order">Add Order</a><br></br>
+</body>

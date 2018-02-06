@@ -1,0 +1,9 @@
+<body>
+
+<h2>Item List</h2>
+  <% Item.all.each do |item| %>
+    <ol><h4><%=item.id%></h4><a href = "/items/<%=item.id%>"> <%=item.name%></o></ul><br></br>
+  <%end%>
+<br></br>
+<a href = "/clients/add_client">Add Client</a><br></br>
+</body>
