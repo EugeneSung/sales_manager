@@ -1,0 +1,24 @@
+<body>
+
+<h2>Add Order</h2>
+<form action='/<%=@client.slug%>/add_order' method="POST">
+
+  <h3>Order Number: </h3>
+  <input type="text" name="order[order_number]"></input>
+
+  <h3>Salesman Name: </h3>
+  <% User.all.each do |user| %>
+    <ol><h4><%=user.id%>, <%=user.name%> <input type="checkbox" name="order[user_id]" value="<%=user.id%>" id="<%=user.id%>"> </input></h4></ol>
+  <%end%>
+
+  <h3>Item List: </h3>
+
+  <% Item.all.each do |item| %>
+    <ol><h4><%=item.id%>, <%=item.name%> <input type="checkbox" name="order[item_ids][]" value="<%=item.id%>"> </input></h4></ol>
+  <%end%>
+
+
+<br></br>
+<input type ="submit" value = 'submit' id="submit"> <br></br>
+</form>
+</body>

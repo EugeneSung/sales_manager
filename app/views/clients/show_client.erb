@@ -8,5 +8,5 @@
   <% @client.orders.each do |order| %>
     <ul><h4><%=order.id%></h4><a href = "/orders/<%=order.id%>"> (click to see details)</a></ul><br></br>
   <%end%>
-<a href = "/add_order">Add Order</a><br></br>
+<a href = "/<%=@client.slug%>/add_order">Add Order</a><br></br>
 </body>
