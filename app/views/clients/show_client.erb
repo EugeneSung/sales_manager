@@ -6,7 +6,7 @@
 <a href = "/clients/edit">Edit Client</a><br></br>
 <h3>Order List: </h3>
   <% @client.orders.each do |order| %>
-    <ul><h4><%=order.id%></h4><a href = "/orders/<%=order.id%>"> (click to see details)</a></ul><br></br>
+    <ul><h4>Order Number: <%=order.order_number%><a href = "/orders/<%=order.order_number%>"> (click to see details)</a></h4></ul><br></br>
   <%end%>
 <a href = "/<%=@client.slug%>/add_order">Add Order</a><br></br>
 </body>

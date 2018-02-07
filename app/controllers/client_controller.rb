@@ -24,17 +24,6 @@ class ClientController < ApplicationController
       redirect '/login'
     end
   end
-  get '/:slug/add_order' do
-    @client = Client.find_by_slug(params[:slug])
-    erb :"orders/add_order"
-  end
-  post '/:slug/add_order' do
 
-    @client = Client.find_by_slug(params[:slug])
-    @order = Order.create(params[:order])
-    @order.client_id = @client.id
-    @order.save
-
-  end
 
 end

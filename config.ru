@@ -7,6 +7,7 @@ end
 
 use Rack::MethodOverride
 use UserController
+use OrderController
 use ClientController
 use ItemController
 run ApplicationController
