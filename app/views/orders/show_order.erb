@@ -1,0 +1,13 @@
+<body>
+
+<h2>Order Number: <%=@order.order_number%></h2>
+<h3>Item List: </h3>
+  <% @order.items.each do |item| %>
+    <ul>Name: <%=item.name%>, Price: <%=item.price%></ul>
+  <%end%>
+<a href = "/orders/<%=@order.order_number%>/edit">Edit Order</a>
+<form action="/orders/<%=@order.order_number%>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value = "Delete Order"><br></br>
+</form>
+</body>

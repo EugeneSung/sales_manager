@@ -11,9 +11,8 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     if logged_in?
-      @user = User.find_by(id: current_user.id)
-      #binding.pry
-      erb :"/users/show_user"
+     @user = User.find_by(id: current_user.id)
+     erb :"/users/show_user"
     else
       erb :index
     end

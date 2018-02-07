@@ -1,0 +1,24 @@
+<body>
+
+<h2>Add Order</h2>
+<form method="POST" action ="/orders/<%=@order.order_number%>/edit">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <h3>Order Number: </h3>
+  <input type="text" name="order[order_number]" value="<%=@order.order_number%>"></input>
+
+  <h3>Salesman Name: </h3>
+  <% User.all.each do |user| %>
+    <h4><%=user.id%>, <%=user.name%> <input type="checkbox" name="order[user_id]" value="<%=user.id%>" id="<%=user.id%>"<%='checked' if @order.user == user %>> </input></h4>
+  <%end%>
+
+  <h3>Item List: </h3>
+
+  <% Item.all.each do |item| %>
+    <h4><%=item.id%>, <%=item.name%> <input type="checkbox" name="order[item_ids][]" value="<%=item.id%>" <%='checked' if @order.items.include?(item) %>> </input></h4>
+  <%end%>
+
+
+<br></br>
+<input type ="submit" value = 'submit' id="submit"> <br></br>
+</form>
+</body>
