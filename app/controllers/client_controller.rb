@@ -51,5 +51,14 @@ class ClientController < ApplicationController
       redirect '/login'
     end
   end
-
+  delete "/clients/:slug/delete" do
+    if logged_in?
+      @client = Client.find_by_slug(params[:slug])
+      @client.delete
+      @client.save
+      redirect "/"
+    else
+      redirect '/login'
+    end
+  end
 end
