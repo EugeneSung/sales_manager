@@ -2,27 +2,41 @@ require './config/environment'
 
 class OrderController < ApplicationController
   get '/:slug/add_order' do
-    @client = Client.find_by_slug(params[:slug])
-    erb :"orders/add_order"
+    if logged_in?
+      @client = Client.find_by_slug(params[:slug])
+      erb :"orders/add_order"
+    else
+      redirect '/login'
+    end
   end
   post '/:slug/add_order' do
-
-    @client = Client.find_by_slug(params[:slug])
-    @order = Order.create(params[:order])
-    @order.client_id = @client.id
-    @order.save
-    redirect "/clients/#{@client.slug}"
-
+    if logged_in?
+      @client = Client.find_by_slug(params[:slug])
+      @order = Order.create(params[:order])
+      @order.client_id = @client.id
+      @order.save
+      redirect "/clients/#{@client.slug}"
+    else
+      redirect '/login'
+    end
   end
   get '/orders/:id' do
-    @order = Order.find_by(order_number: params[:id])
+    if logged_in?
 
-    erb :"/orders/show_order"
+      @order = Order.find_by(order_number: params[:id])
+      erb :"/orders/show_order"
+    else
+      redirect '/login'
+    end
+
   end
   get "/orders/:id/edit" do
-    @order = Order.find_by(order_number: params[:id] )
-    erb :"/orders/edit_order"
-
+    if logged_in?
+      @order = Order.find_by(order_number: params[:id] )
+      erb :"/orders/edit_order"
+    else
+      redirect '/login'
+    end
   end
   patch "/orders/:id/edit" do
     if logged_in? && !params[:order][:order_number].empty?
