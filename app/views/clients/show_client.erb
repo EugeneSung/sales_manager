@@ -3,10 +3,10 @@
 <h2><%=@client.name%></h2>
 <h3>Address: <%=@client.address%></h3>
 <h3>Title: <%=@client.phone%></h3>
-<a href = "/clients/edit">Edit Client</a><br></br>
+<a href = "/clients/<%=@client.slug%>/edit">Edit Client</a><br></br>
 <h3>Order List: </h3>
   <% @client.orders.each do |order| %>
-    <ul><h4>Order Number: <%=order.order_number%><a href = "/orders/<%=order.order_number%>"> (click to see details)</a></h4></ul><br></br>
+    <ul><h4>Order Number: <%=order.order_number%><a href = "/orders/<%=order.order_number%>"> (click to see details)</a></h4></ul>
   <%end%>
 <a href = "/<%=@client.slug%>/add_order">Add Order</a><br></br>
 </body>

@@ -6,7 +6,7 @@
 <a href = "/users/edit">Edit User</a><br></br>
 <h3>Client List: </h3>
   <% @user.clients.each do |client| %>
-    <ul><h4><%=client.name%></h4><a href = "/clients/<%=client.slug%>"> (click to see details)</a></ul><br></br>
+    <ul><h4><%=client.name%></h4><a href = "/clients/<%=client.slug%>"> (click to see details)</a></ul>
   <%end%>
 <a href = "/clients/add_client">Add Client</a><br></br>
 </body>

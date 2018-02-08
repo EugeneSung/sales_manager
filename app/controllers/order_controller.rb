@@ -37,12 +37,12 @@ class OrderController < ApplicationController
   delete "/orders/:id/delete" do
     if logged_in?
       @order = Order.find_by(order_number: params[:id])
-      #if @order.user_id == current_user.id
+      if @order.user_id == current_user.id
         @order.delete
         @order.save
-      #end
+      end
     end
-      redirect "/"
+      redirect "/clients/#{@order.client.slug}"
 
   end
 

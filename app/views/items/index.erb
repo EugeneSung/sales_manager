@@ -2,7 +2,7 @@
 
 <h2>Item List</h2>
   <% Item.all.each do |item| %>
-    <ol><h4><%=item.id%><a href = "/items/<%=item.id%>"> <%=item.name%></h4></ol><br></br>
+    <ol><h4><%=item.id%>, <a href = "/items/<%=item.id%>"> <%=item.name%></h4></ol>
   <%end%>
 <br></br>
 <a href = "/items/add_item">Add Item</a><br></br>

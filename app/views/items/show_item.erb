@@ -1,0 +1,14 @@
+<body>
+
+  <form method="POST" action ="/items/<%=@item.id%>/edit">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <ul><h4>Name:</h4> <input type="text" name="name" value="<%=@item.name%>"></ul>
+    <ul><h4>Price:</h4> <input type="text" name="price" value="<%=@item.price%>"></ul>
+    <ul><h4>Description:</h4> <input type="text" name="description" value="<%=@item.description%>"></ul>
+    <input type="submit" value="Edit Item">
+  </form>
+  <form action="/items/<%=@item.id%>/delete" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value = "Delete Item"><br></br>
+  </form>
+</body>
