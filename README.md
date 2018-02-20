@@ -1,8 +1,6 @@
 # SalesManager
+This is a Sinatra Application that I created for my Sinatra Final Project at Learn//Flatiron School. You can use this app to manage your customers and item list for your small business. 
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/sales_manager`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+After cloning the repo, run bundle install to install dependencies. To migrate your local database, run rake db:migrate. To start the application on your machine, run shotgun. In a browser, go to http://localhost:9393/ to begin (Note: you may be using a different port. Please update accordingly).
 
 ## Development
 
