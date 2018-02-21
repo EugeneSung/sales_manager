@@ -7,7 +7,9 @@ class ClientController < ApplicationController
   end
   post "/clients/add_client" do
 
-    client = Client.find_by(name: params[:name])
+    temp_client = Client.new(params)
+     client = Client.find_by_slug(temp_client.slug)
+    #binding.pry
     if client
       redirect '/clients/add_client'
     else
