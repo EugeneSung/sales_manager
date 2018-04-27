@@ -12,10 +12,14 @@ class OrderController < ApplicationController
   post '/:slug/add_order' do
     if logged_in?
       @client = Client.find_by_slug(params[:slug])
-      @order = Order.create(params[:order])
-      @order.client_id = @client.id
-      @order.save
-      redirect "/clients/#{@client.slug}"
+      if Order.find_by(order_number: params[:order][:order_number])
+        redirect "/#{@client.slug}/add_order"
+      else
+        @order = Order.create(params[:order])
+        @order.client_id = @client.id
+        @order.save
+        redirect "/clients/#{@client.slug}"
+      end
     else
       redirect '/login'
     end
